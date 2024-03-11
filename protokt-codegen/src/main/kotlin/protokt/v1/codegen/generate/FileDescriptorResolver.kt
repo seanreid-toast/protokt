@@ -83,7 +83,7 @@ private constructor(
             val sb = StringBuilder()
             arrayParts
                 .forEach { sb.append(it) }
-            CodeBlock.of("\"%U\"", sb.toString())
+            CodeBlock.of("\"%L\"", sb.toString().replace(' ', '·'))
         }.joinToCode(",\n")
     }
 
