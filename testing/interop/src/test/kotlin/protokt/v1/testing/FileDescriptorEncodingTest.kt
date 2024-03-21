@@ -21,6 +21,7 @@ import com.google.protobuf.Descriptors
 import com.google.protobuf.GeneratedMessageV3
 import com.toasttab.protokt.v1.testing.DeeplyNested
 import com.toasttab.protokt.v1.testing.HasAService
+import com.toasttab.protokt.v1.testing.VeryLarge
 import org.junit.jupiter.api.Test
 import protokt.v1.google.protobuf.Api
 import protokt.v1.google.protobuf.Descriptor
@@ -45,7 +46,8 @@ class FileDescriptorEncodingTest {
         assertFileDescriptorsAreEqual(DescriptorProto.ExtensionRange.descriptor, DescriptorProtos.DescriptorProto.ExtensionRange::class)
         assertFileDescriptorsAreEqual(DeeplyNested4.descriptor, DeeplyNested.DeeplyNested1.DeeplyNested2.DeeplyNested3.DeeplyNested4::class)
 
-        // todo: get a really big type descriptor that doesn't fit in one string
+        // very large proto
+        assertFileDescriptorsAreEqual(very_large_file_descriptor.descriptor.messageTypes[0], VeryLarge.VeryLargeMessage::class)
 
         fun FileDescriptor.toProtobufJavaDescriptor(): Descriptors.FileDescriptor =
             Descriptors.FileDescriptor.buildFrom(
