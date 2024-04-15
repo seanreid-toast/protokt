@@ -41,7 +41,7 @@ private const val BYTES_PER_PART = BYTES_PER_LINE * LINES_PER_PART
 // initialize each and every byte of the array, e.g. as if you typed:
 //   b[0] = 123; b[1] = 456; b[2] = 789;
 // This makes huge bytecode files and can easily hit the compiler's internal
-// code size limits (error "code to large").  String literals are apparently
+// code size limits (error "code too large").  String literals are apparently
 // embedded raw, which is what we want.
 fun encodeFileDescriptor(fileDescriptorProto: FileDescriptorProto): List<List<String>> {
     val parts = mutableListOf<MutableList<String>>()
